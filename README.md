@@ -1,38 +1,55 @@
-Role Name
+Lighthouse VK
 =========
 
-A brief description of the role goes here.
+LightHouse is a lightweight GUI interface for ClickHouse.
 
 Requirements
 ------------
-
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+OS Fedora 37 on managed nodes.
+Nginx on managed nodes.
 
 Role Variables
 --------------
+No variables used.
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+Templates
+--------------
+lighthouse.conf.j2 - configuration file for proper work witn nginx.
 
 Dependencies
 ------------
+List of roles required for full-time work:
+[Clickhouse](https://github.com/AlexeySetevoi/ansible-clickhouse.git)
+[Vector-role](https://github.com/reocoker85/vector-role.git)
+[Nginx-role](https://github.com/reocoker85/nginx-role.git)
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Install role :
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+- Create file ```requirements.yml``` with:
+```yaml
+- src: git@github.com:reocoker85/lighthouse-role.git      
+  scm: git
+  version: "main"
+  name: lighthouse-role
+```
+- use command ```ansible-galaxy install -r requirements.yml -p roles``` for downloding role in directory roles.
 
-License
--------
+Use role ( playbook example):
 
-BSD
+```yaml
+- name: Install lighthouse
+  hosts: lighthouse
+  become: true
+  roles:
+    - lighthouse-role
+  tags: lighthouse
+```
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+### KIG
