@@ -5,8 +5,8 @@ LightHouse is a lightweight GUI interface for ClickHouse.
 
 Requirements
 ------------
-OS Fedora 37 on managed nodes.
-Nginx on managed nodes.
+- OS Fedora 37 on managed nodes.
+- Nginx on managed nodes.
 
 Role Variables
 --------------
@@ -14,14 +14,14 @@ No variables used.
 
 Templates
 --------------
-lighthouse.conf.j2 - configuration file for proper work witn nginx.
+lighthouse.conf.j2 - configuration file for proper work with nginx.
 
 Dependencies
 ------------
 List of roles required for full-time work:
-[Clickhouse](https://github.com/AlexeySetevoi/ansible-clickhouse.git)
-[Vector-role](https://github.com/reocoker85/vector-role.git)
-[Nginx-role](https://github.com/reocoker85/nginx-role.git)
+- [Clickhouse](https://github.com/AlexeySetevoi/ansible-clickhouse.git)
+- [Vector-role](https://github.com/reocoker85/vector-role.git)
+- [Nginx-role](https://github.com/reocoker85/nginx-role.git)
 
 
 Example Playbook
@@ -36,7 +36,7 @@ Install role :
   version: "main"
   name: lighthouse-role
 ```
-- use command ```ansible-galaxy install -r requirements.yml -p roles``` for downloding role in directory roles.
+- use command ```ansible-galaxy install -r requirements.yml -p roles``` for downloading role in directory roles.
 
 Use role ( playbook example):
 
